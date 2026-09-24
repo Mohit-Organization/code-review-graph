@@ -75,7 +75,7 @@ pip install "code-review-graph[embeddings]"
 ```
 Then use `embed_graph_tool` to compute vectors. `semantic_search_nodes_tool` automatically uses vector similarity.
 
-Embedding providers: Local (sentence-transformers), Google Gemini, MiniMax. Configure via `CRG_EMBEDDING_MODEL` env var.
+Embedding providers: Local (sentence-transformers), Google Gemini, MiniMax, and OpenAI-compatible endpoints. `CRG_EMBEDDING_MODEL` configures the default local model; OpenAI-compatible endpoints use `CRG_OPENAI_API_KEY`, `CRG_OPENAI_BASE_URL`, and `CRG_OPENAI_MODEL`. Cloud providers send graph-derived text to the configured service.
 
 ### 7. Detect changes with risk scoring (v2)
 ```

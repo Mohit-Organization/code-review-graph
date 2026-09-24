@@ -24,7 +24,7 @@ Never include full files unless explicitly asked.
 </section>
 
 <section name="commands">
-MCP tools (24): get_minimal_context_tool, build_or_update_graph_tool, run_postprocess_tool, get_impact_radius_tool, query_graph_tool, get_review_context_tool, semantic_search_nodes_tool, embed_graph_tool, list_graph_stats_tool, get_docs_section_tool, find_large_functions_tool, list_flows_tool, get_flow_tool, get_affected_flows_tool, list_communities_tool, get_community_tool, get_architecture_overview_tool, detect_changes_tool, refactor_tool, apply_refactor_tool, generate_wiki_tool, get_wiki_page_tool, list_repos_tool, cross_repo_search_tool
+MCP tools (30): build_or_update_graph_tool, run_postprocess_tool, get_minimal_context_tool, get_impact_radius_tool, query_graph_tool, get_review_context_tool, semantic_search_nodes_tool, embed_graph_tool, list_graph_stats_tool, get_docs_section_tool, find_large_functions_tool, list_flows_tool, get_flow_tool, get_affected_flows_tool, list_communities_tool, get_community_tool, get_architecture_overview_tool, detect_changes_tool, refactor_tool, apply_refactor_tool, generate_wiki_tool, get_wiki_page_tool, get_hub_nodes_tool, get_bridge_nodes_tool, get_knowledge_gaps_tool, get_surprising_connections_tool, get_suggested_questions_tool, traverse_graph_tool, list_repos_tool, cross_repo_search_tool
 MCP prompts (5): review_changes, architecture_map, debug_issue, onboard_developer, pre_merge_check
 Skills: build-graph, review-delta, review-pr
 CLI: code-review-graph [install|init|build|update|status|watch|visualize|serve|wiki|detect-changes|postprocess|register|unregister|repos|eval]
@@ -32,7 +32,7 @@ Token efficiency: All tools support detail_level="minimal" for compact output. A
 </section>
 
 <section name="legal">
-MIT license. 100% local. No telemetry. DB file: .code-review-graph/graph.db
+MIT license. Graph parsing/storage are local; cloud embeddings and MCP clients can transmit graph-derived text. No telemetry. DB file: .code-review-graph/graph.db
 </section>
 
 <section name="watch">
@@ -44,7 +44,7 @@ Or use PostToolUse (Write|Edit|Bash) hooks for automatic background updates.
 Optional: pip install code-review-graph[embeddings]
 Then call embed_graph_tool to compute vectors.
 semantic_search_nodes_tool auto-uses vectors when available, falls back to keyword + FTS5.
-Providers: Local (all-MiniLM-L6-v2, 384-dim), Google Gemini, MiniMax (embo-01, 1536-dim).
+Providers: Local (all-MiniLM-L6-v2, 384-dim), Google Gemini, MiniMax (embo-01, 1536-dim), and OpenAI-compatible endpoints. OpenAI-compatible configuration uses CRG_OPENAI_API_KEY, CRG_OPENAI_BASE_URL, and CRG_OPENAI_MODEL.
 Configure via CRG_EMBEDDING_MODEL env var or model parameter.
 </section>
 

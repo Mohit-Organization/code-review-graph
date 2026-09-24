@@ -19,7 +19,7 @@
 │  ┌────────────────────────────────────────────┐              │
 │  │            MCP Server (stdio)              │              │
 │  │                                            │              │
-│  │  22 MCP Tools + 5 MCP Prompts              │              │
+│  │  30 MCP Tools + 5 MCP Prompts              │              │
 │  │  ├── Core: build, impact, query, review,   │              │
 │  │  │   search, embed, stats, docs, large_fn  │              │
 │  │  ├── Flows: list, get, affected            │              │

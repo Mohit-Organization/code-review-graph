@@ -124,7 +124,7 @@
 - **FastMCP 3.0 compatible** stdio MCP server
 
 ## Privacy & Data
-- All data stays 100% local
+- Core graph storage is local. Optional cloud embeddings and connected MCP clients can transmit graph-derived text; see [LEGAL.md](LEGAL.md).
 - Graph stored in `.code-review-graph/graph.db` (SQLite), auto-gitignored
 - No telemetry, no network calls
 - Respects `.gitignore` and `.code-review-graphignore`

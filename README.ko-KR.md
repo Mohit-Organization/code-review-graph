@@ -121,7 +121,16 @@ git 커밋이나 파일 저장마다 훅이 실행됩니다. 그래프는 변경
   <img src="diagrams/diagram5_benchmark_board.png" alt="실제 저장소 벤치마크: 4.9배에서 27.3배 적은 토큰, 더 높은 리뷰 품질" width="85%" />
 </p>
 
-모든 수치는 6개 실제 오픈소스 저장소(총 13개 커밋)에 대한 자동화된 평가 실행 결과입니다. `code-review-graph eval --all`로 재현할 수 있습니다. 원본 데이터는 [`evaluate/reports/summary.md`](evaluate/reports/summary.md)에 있습니다.
+게시된 결과는 실제 오픈소스 저장소 6개(총 13개 커밋)를 대상으로 합니다. 기록된 결과는 [과거 벤치마크 보고서](https://github.com/tirth8205/code-review-graph/blob/ec083b92e887fd9d5a652585b416bffa5d85792e/evaluate/reports/summary.md)에서 확인할 수 있습니다.
+
+새 평가를 실행하려면 `pip install "code-review-graph[eval]"`로 평가용 의존성을 설치한 뒤 저장소 루트에서 다음 명령을 순서대로 실행하세요.
+
+```bash
+code-review-graph eval --all
+code-review-graph eval --report
+```
+
+첫 번째 명령은 CSV 결과를 `evaluate/results/`에 저장하고, 두 번째 명령은 `evaluate/reports/summary.md`를 생성합니다. 두 출력 디렉터리는 의도적으로 Git 추적 대상에서 제외되어 있으므로 새로 복제한 저장소에는 포함되지 않습니다. 새로 실행한 결과는 기존 결과와 다를 수 있습니다.
 
 전체 벤치마크 결과는 [영문 README](README.md#benchmarks)를 참조하세요.
 

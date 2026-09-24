@@ -121,7 +121,16 @@ gitコミットやファイル保存のたびにフックが起動します。�
   <img src="diagrams/diagram5_benchmark_board.png" alt="実リポジトリでのベンチマーク：トークン4.9倍から27.3倍削減、レビュー品質向上" width="85%" />
 </p>
 
-すべての数値は6つの実際のオープンソースリポジトリ（合計13コミット）に対する自動評価ランナーの結果です。`code-review-graph eval --all` で再現可能です。生データは [`evaluate/reports/summary.md`](evaluate/reports/summary.md) をご覧ください。
+掲載されている結果は、6つの実際のオープンソースリポジトリ（合計13コミット）を対象としています。記録された結果は[過去のベンチマークレポート](https://github.com/tirth8205/code-review-graph/blob/ec083b92e887fd9d5a652585b416bffa5d85792e/evaluate/reports/summary.md)で確認できます。
+
+新しい評価を実行するには、`pip install "code-review-graph[eval]"` で評価用の依存関係をインストールし、リポジトリのルートで次のコマンドを順に実行します。
+
+```bash
+code-review-graph eval --all
+code-review-graph eval --report
+```
+
+最初のコマンドはCSV形式の結果を `evaluate/results/` に保存し、次のコマンドは `evaluate/reports/summary.md` を生成します。どちらの出力ディレクトリも意図的にGitの追跡対象から除外されているため、新しくクローンした環境には含まれません。新たに実行した場合、結果が異なることがあります。
 
 > 詳細なベンチマーク結果（トークン効率、影響精度、ビルド性能、既知の制限事項）については [英語版README](README.md) を参照してください。
 

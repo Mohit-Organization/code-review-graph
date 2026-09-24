@@ -123,7 +123,16 @@ Full Tree-sitter grammar support for functions, classes, imports, call sites, in
   <img src="diagrams/diagram5_benchmark_board.png" alt="Benchmarks across real repos: 4.9x to 27.3x fewer tokens, higher review quality" width="85%" />
 </p>
 
-All numbers come from the automated evaluation runner against 6 real open-source repositories (13 commits total). Reproduce with `code-review-graph eval --all`. Raw data in [`evaluate/reports/summary.md`](evaluate/reports/summary.md).
+The published results cover 6 real open-source repositories (13 commits total). See the [historical benchmark report](https://github.com/tirth8205/code-review-graph/blob/ec083b92e887fd9d5a652585b416bffa5d85792e/evaluate/reports/summary.md) for the recorded results.
+
+To run a new evaluation, install the evaluation dependencies with `pip install "code-review-graph[eval]"`, then run these commands from the repository root:
+
+```bash
+code-review-graph eval --all
+code-review-graph eval --report
+```
+
+The first command writes CSV results to `evaluate/results/`; the second generates `evaluate/reports/summary.md`. Both output directories are intentionally gitignored and are absent from a fresh checkout. New runs may produce different results.
 
 <details>
 <summary><strong>Token efficiency: 8.2x average reduction (naive vs graph)</strong></summary>
